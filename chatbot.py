@@ -97,7 +97,7 @@ if st.session_state.active_session_id:
         chat_session.append({"role": "assistant", "content": f"Câu hỏi đầy đủ bạn là: {standalone}"})
 
         document_chain = create_stuff_documents_chain(llm_answer,prompt)
-        retriever = vector_store.as_retriever(search_kwargs={"k": 20})
+        retriever = vector_store.as_retriever(search_kwargs={"k": 30})
         retrieval_chain = create_retrieval_chain(retriever, document_chain)
         response = retrieval_chain.invoke({'input':standalone})
         chat_history.add_assistant_message(response['answer'])

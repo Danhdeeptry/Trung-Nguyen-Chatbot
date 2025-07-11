@@ -124,7 +124,7 @@ def evaluate_testcase(tc):
 
     # Retrieval + Answer
     document_chain = create_stuff_documents_chain(llm_answer, prompt)
-    retriever = vector_store.as_retriever(search_kwargs={"k": 20})
+    retriever = vector_store.as_retriever(search_kwargs={"k": 30})
     retrieval_chain = create_retrieval_chain(retriever, document_chain)
     response = retrieval_chain.invoke({'input': query})
     expected_answer = response['answer']
