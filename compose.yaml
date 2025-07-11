@@ -1,0 +1,28 @@
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"   
+      - "9001:9001"   
+    environment:
+      MINIO_ROOT_USER: danh
+      MINIO_ROOT_PASSWORD: danh2606
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":9001"
+  postgres:
+    image: ankane/pgvector:latest
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: danh
+      POSTGRES_PASSWORD: danh2606
+      POSTGRES_DB: trungnguyen
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  minio-data:
+  postgres_data:

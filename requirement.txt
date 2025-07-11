@@ -1,0 +1,11 @@
+langchain
+streamlit
+gspread
+google-generativeai
+sentence_transformers
+faiss-cpu
+langchain-google-genai
+langchain-community 
+boto3
+langchain-postgres
+psycopg[binary]
