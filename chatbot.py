@@ -108,6 +108,7 @@ if st.session_state.active_session_id:
         with open("history\history.txt", "w", encoding="utf-8") as f:
             for message in chat_history.get_messages():
                 f.write(f"{message}\n")
+        print(len(response["context"]))
 
         for i, doc in enumerate(response["context"]):
             print(doc.metadata)

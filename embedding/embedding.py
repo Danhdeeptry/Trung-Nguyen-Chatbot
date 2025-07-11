@@ -55,8 +55,10 @@ vector_store = PGVector(
     connection=connection,
     use_jsonb=True,
 )
-vector_store.create_collection()       
-vector_store.delete_collection()       
+try:
+    vector_store.delete_collection()
+except Exception as e:
+    print(f"No existing collection to delete: {e}")
 vector_store.create_collection()
 vector_store.add_documents(documents=documents)
 

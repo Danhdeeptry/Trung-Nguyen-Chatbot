@@ -98,7 +98,7 @@ def evaluate_with_llm(question, expected_answer, actual_answer):
 embeddings = STEmbeddings()
 sample = get_question()
 connection = 'postgresql+psycopg://danh:danh2606@localhost:5432/trungnguyen'
-collection_name = "trungnguyent_docs"
+collection_name = "trungnguyen_docs"
 vector_store = PGVector(
     embeddings=embeddings,
     collection_name=collection_name,
