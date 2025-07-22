@@ -1,4 +1,13 @@
 services:
+  app:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8001:8001"   
+      - "8502:8502"   
+    depends_on:
+      - postgres
   minio:
     image: minio/minio:latest
     container_name: minio
@@ -22,6 +31,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
 
 volumes:
   minio-data:
